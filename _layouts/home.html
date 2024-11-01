@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ site.title }}</title>
+</head>
+<body>
+    <header>
+        <h1>Bienvenue sur {{ site.title }}</h1>
+    </header>
+    <section>
+        <h2>Articles récents</h2>
+        <ul>
+            {% for post in site.posts %}
+                <li>
+                    <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%B %d, %Y" }}
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+</body>
+</html>
