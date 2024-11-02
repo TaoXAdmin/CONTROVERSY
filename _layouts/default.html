@@ -3,22 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <meta name="description" content="{{ page.excerpt | strip_html | truncatewords: 20 }}">
+    <meta name="keywords" content="blog, technologie, avis, articles, opinions">
+    <meta name="author" content="IllusionTech">
+    
+    <!-- Open Graph / réseaux sociaux -->
+    <meta property="og:title" content="{{ page.title }} | {{ site.title }}">
+    <meta property="og:description" content="{{ page.excerpt | strip_html | truncatewords: 20 }}">
+    <meta property="og:image" content="{{ site.url }}/assets/images/thumbnail.png">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta name="twitter:card" content="summary_large_image">
+
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
 </head>
 <body>
-    <header>
-        <h1>{{ site.title }}</h1>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-        </nav>
-    </header>
+<header class="site-header">
+    <div class="logo">
+        <a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/assets/images/logo.png" alt="Logo du Blog"></a>
+    </div>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="{{ site.baseurl }}/about">À Propos</a></li>
+            <li><a href="{{ site.baseurl }}/contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+	<div id="search-container">
+		<input type="text" id="search-input" placeholder="Rechercher...">
+	</div>
     <main>
         {{ content }}
     </main>
+<br>
+<aside class="sidebar">
+    {% include sidebar.html %}
+</aside>
+
     <footer>
         <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}</p>
     </footer>
 </body>
 </html>
+<script>
+    document.getElementById('search-input').addEventListener('input', function () {
+        const query = this.value.toLowerCase();
+        const articles = document.querySelectorAll('article');
+        
+        articles.forEach(article => {
+            const title = article.querySelector('h2').textContent.toLowerCase();
+            if (title.includes(query)) {
+                article.style.display = '';
+            } else {
+                article.style.display = 'none';
+            }
+        });
+    });
+</script>
+<script>
+    const toggleButton = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+
+    document.documentElement.setAttribute('data-theme', currentTheme);
+
+    toggleButton.textContent = currentTheme === 'dark' ? 'Mode Clair' : 'Mode Sombre';
+
+    toggleButton.addEventListener('click', () => {
+        const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        toggleButton.textContent = newTheme === 'dark' ? 'Mode Clair' : 'Mode Sombre';
+    });
+</script>

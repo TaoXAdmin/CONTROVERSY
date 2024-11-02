@@ -14,5 +14,10 @@
         <p><small>Publié le {{ page.date | date: "%B %d, %Y" }}</small></p>
         {{ content }}
     </article>
+	<div class="social-share">
+    <a href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.url }}&text={{ page.title }}" target="_blank">Twitter</a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" target="_blank">Facebook</a>
+</div>
+
 </body>
 </html>

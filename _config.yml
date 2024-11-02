@@ -2,3 +2,12 @@ title: "Controversy"
 description: "Blog sur des sujets controversés"
 baseurl: "" # pour GitHub Pages, laissez vide
 url: "https://taoxadmin.github.io/CONTROVERSY/" # l'URL de votre site
+
+paginate: 5 # Nombre d'articles par page
+paginate_path: "/page:num/"
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+
+incremental: true

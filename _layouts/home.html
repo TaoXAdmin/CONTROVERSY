@@ -7,8 +7,17 @@
 </head>
 <body>
     <header>
-        <h1>Bienvenue sur {{ site.title }}</h1>
+        <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
+		<nav>
+			<a href="{{ site.baseurl }}/">Accueil</a>
+			<a href="{{ site.baseurl }}/about.html">À propos</a>
+			<a href="{{ site.baseurl }}/categories.html">Catégories</a>
+			<button id="theme-toggle">Mode Sombre</button>
+		</nav>
     </header>
+	<div id="search-container">
+		<input type="text" id="search-input" placeholder="Rechercher...">
+	</div>
     <section>
         <h2>Articles récents</h2>
         <ul>
@@ -21,3 +30,33 @@
     </section>
 </body>
 </html>
+<script>
+    document.getElementById('search-input').addEventListener('input', function () {
+        const query = this.value.toLowerCase();
+        const articles = document.querySelectorAll('article');
+        
+        articles.forEach(article => {
+            const title = article.querySelector('h2').textContent.toLowerCase();
+            if (title.includes(query)) {
+                article.style.display = '';
+            } else {
+                article.style.display = 'none';
+            }
+        });
+    });
+</script>
+<script>
+    const toggleButton = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+
+    document.documentElement.setAttribute('data-theme', currentTheme);
+
+    toggleButton.textContent = currentTheme === 'dark' ? 'Mode Clair' : 'Mode Sombre';
+
+    toggleButton.addEventListener('click', () => {
+        const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        toggleButton.textContent = newTheme === 'dark' ? 'Mode Clair' : 'Mode Sombre';
+    });
+</script>

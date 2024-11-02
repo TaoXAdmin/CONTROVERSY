@@ -1,0 +1,24 @@
+<div class="sidebar">
+    <div class="bio">
+        <h3>À Propos de Moi</h3>
+        <p>Bienvenue sur mon blog ! Ici, je partage mes réflexions et des articles intéressants.</p>
+    </div>
+
+    <div class="social-links">
+        <h3>Suivez-moi</h3>
+        <ul>
+            <li><a href="https://twitter.com/votreprofil" target="_blank">Twitter</a></li>
+            <li><a href="https://linkedin.com/in/votreprofil" target="_blank">LinkedIn</a></li>
+            <!-- Ajoutez d'autres liens sociaux si nécessaire -->
+        </ul>
+    </div>
+
+    <div class="categories">
+        <h3>Catégories</h3>
+        <ul>
+            {% for category in site.categories %}
+                <li><a href="{{ site.baseurl }}/categories/{{ category[0] }}">{{ category[0] }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
