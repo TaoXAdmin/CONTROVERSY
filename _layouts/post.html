@@ -2,22 +2,228 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ page.title }}</title>
-	<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <meta name="description" content="{{ page.excerpt | strip_html | truncatewords: 20 }}">
+    <meta name="keywords" content="blog, technologie, avis, articles, opinions">
+    <meta name="author" content="IllusionTech">
+    
+    <!-- Open Graph / réseaux sociaux -->
+    <meta property="og:title" content="{{ page.title }} | {{ site.title }}">
+    <meta property="og:description" content="{{ page.excerpt | strip_html | truncatewords: 20 }}">
+    <meta property="og:image" content="{{ site.url }}/assets/images/thumbnail.png">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="https://use.typekit.net/yrq1vrq.css">
+    <link rel="stylesheet" href="https://use.typekit.net/klm0obu.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
 </head>
 <body>
-    <header>
-        <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
-    </header>
-    <article>
-        <h2>{{ page.title }}</h2>
-        <p><small>Publié le {{ page.date | date: "%B %d, %Y" }}</small></p>
-        {{ content }}
-    </article>
-	<div class="social-share">
-    <a href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.url }}&text={{ page.title }}" target="_blank">Twitter</a>
-    <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" target="_blank">Facebook</a>
-</div>
-
+    <div class="top-ad">
+        <div><a href="http://freedomfighters.com/"> <span class="emojix">⛔</span> FreedomFighters.com  </a></div>
+        <div class="fix">|</div>
+        <div><a href="{{ site.baseurl }}/"><img class="icon-cart" src="{{ site.baseurl }}/assets/images/icons/shopping-cart.png" alt="shopping-cart"></a></div>
+        <div class="fakestore"><a href="{{ site.baseurl }}/">Controversy Store</a></div>
+    </div>	
+    
+    <div class="banner">
+        <div id="search-container">
+            <img class="burger-menu" src="{{ site.baseurl }}/assets/images/icons/burger-menu.png" alt="Logo du Blog" onclick="toggleBurgerMenu()">
+            <input type="text" id="search-input" placeholder="search...">
+        </div>
+        <div class="logo">
+            <a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/assets/images/logo.png" alt="Logo du Blog"></a>
+        </div>
+        <div class="online">			
+            <span class="point"></span><a href="{{ site.baseurl }}/">ONLINE</a>
+        </div>
+    </div>
+	<div class="main-menu" id="main-menu"  style="top: 120px; height: 850px;">
+		<ul class="main-menu-links"> 
+			<li class="main-menu-link">
+				<a href="" class="main-menu-link-anchor" style="font-size: 16px; font-weight: 600;">
+					Home
+				</a> 
+			</li>			
+			<li class="main-menu-section" >
+				<span class="spann">
+					Follow Us On:
+				</span> 
+			</li>
+			<li class="main-menu-link" >
+				<a href="/show/network-feed" class="main-menu-link-anchor" >
+					X 
+				</a>
+			</li>
+			<li class="main-menu-link" >
+				<a href="/show/the-alex-jones-show" class="main-menu-link-anchor" >
+					Reddit 
+				</a>
+			</li>
+			<li class="main-menu-link" > 
+				<a href="/show/war-room" class="main-menu-link-anchor" >
+					Instagram 
+				</a>
+			</li>
+			<li class="main-menu-link" > 
+				<a href="/show/war-room" class="main-menu-link-anchor" >
+					Youtube
+				</a>
+			</li>
+			<li class="main-menu-link" > 
+				<a href="/show/war-room" class="main-menu-link-anchor" >
+					Facebook
+				</a>
+			</li>
+			<li class="main-menu-link" > 
+				<a href="/show/war-room" class="main-menu-link-anchor" >
+					Telegram
+				</a>
+			</li>
+			<li class="main-menu-section" >
+				<span class="spann">
+					Areas:
+				</span>
+			</li>
+			<li class="main-menu-link">
+				<a href="" class="main-menu-link-anchor">
+					Breaking Controversies
+				</a> 
+			</li>
+			<li class="main-menu-link" >
+				<a href="" class="main-menu-link-anchor">
+					World News & Global Conflicts
+				</a>
+			</li>
+			<li class="main-menu-link" >
+				<a href="" class="main-menu-link-anchor">
+					Politics & Governance
+				</a>
+			</li>
+			<li class="main-menu-link" >
+				<a href="" class="main-menu-link-anchor" >
+					Science & Technology
+				</a>
+			</li>
+			<li class="main-menu-link" >
+				<a href="" class="main-menu-link-anchor" >
+					Health & Wellness
+				</a>
+			</li>
+			<li class="main-menu-link" >
+				<a href="" class="main-menu-link-anchor" >
+					Economy & Finance
+				</a>
+			</li>
+			<li class="main-menu-section" >
+				<span class="spann">
+					More
+				</span>
+			</li>
+			<li class="main-menu-link" >
+				<a href="https://www.banned.video" class="main-menu-link-anchor" >
+					<strong >
+						FreedomFighters.com
+					</strong>
+				</a>
+			</li>
+			<li class="main-menu-link" >
+				<a href="https://infowarsstore.com/" class="main-menu-link-anchor" >
+					<strong >
+						Controversy Store
+					</strong>
+				</a>
+			</li>
+		</ul> 
+	</div>
+	
 </body>
 </html>
+
+
+<script>
+	let lastScrollY = window.scrollY;
+	const topAd = document.querySelector('.top-ad');
+	const header = document.querySelector('.banner');
+
+	window.addEventListener('scroll', () => {
+		if (window.scrollY > lastScrollY) {
+			// Scrolling down
+			topAd.classList.add('hidden');
+			header.classList.add('shadow'); // Adds the shadow class to the header
+		} else if (window.scrollY === 0) {
+			// At the top of the page
+			topAd.classList.remove('hidden');
+			header.classList.remove('shadow'); // Removes the shadow class when back at the top
+		}
+		lastScrollY = window.scrollY;
+	});
+</script>
+
+<script>
+function cycleRandomColors() {
+    setInterval(() => {
+        // Générer des valeurs aléatoires pour chaque composant primaire RGB
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+
+        // Obtenez les éléments par leur classe ou un autre sélecteur pertinent
+        const cartElement = document.querySelector('.icon-cart');
+        const storeElement = document.querySelector('.fakestore a'); // Cibler spécifiquement le lien dans .fakestore
+        
+        if (cartElement && storeElement) {
+            // Créer la couleur en format RGB
+            const color = `rgb(${r}, ${g}, ${b})`;
+
+            // Appliquer le style avec `!important` pour avoir le dernier mot
+            cartElement.style.setProperty('filter', `brightness(0) saturate(100%) invert(30%) sepia(90%) saturate(5000%) hue-rotate(${(r + g + b) % 360}deg) brightness(95%) contrast(100%)`, 'important');
+            storeElement.style.setProperty('color', color, 'important');
+        }
+    }, 250); // Intervalle rapide (100 ms) pour un changement de couleur dynamique
+}
+
+// Exécuter la fonction pour démarrer le changement de couleurs
+cycleRandomColors();
+</script>
+
+<script>
+function cycleEmojis() {
+    const emojis = ["🙈", "⛔", "🤫", "🤐", "🗽"]; // Liste des emojis à faire défiler
+    let index = 0;
+
+    setInterval(() => {
+        // Cibler l'élément avec la classe `emojix`
+        const emojiElement = document.querySelector('.emojix');
+        
+        if (emojiElement) {
+            // Mettre à jour le contenu de l'élément avec l'emoji actuel
+            emojiElement.textContent = emojis[index];
+            
+            // Passer à l'emoji suivant
+            index = (index + 1) % emojis.length;
+        }
+    }, 1000); // Changer d'emoji toutes les secondes (1000 ms)
+}
+
+// Exécuter la fonction pour démarrer le changement d'emoji
+cycleEmojis();
+</script>
+
+<script>
+function toggleBurgerMenu() {
+  const burgerMenu = document.querySelector('.burger-menu');
+  const mainMenu = document.querySelector('#main-menu');
+
+  if (burgerMenu.classList.contains('rotate-open')) {
+    burgerMenu.classList.remove('rotate-open');
+    burgerMenu.classList.add('rotate-close');
+    mainMenu.classList.remove('menu-open');
+  } else {
+    burgerMenu.classList.remove('rotate-close');
+    burgerMenu.classList.add('rotate-open');
+    mainMenu.classList.add('menu-open');
+  }
+}
+</script>

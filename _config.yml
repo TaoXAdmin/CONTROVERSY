@@ -11,3 +11,17 @@ plugins:
   - jekyll-sitemap
 
 incremental: true
+
+categories:
+  - title: "Breaking Controversies"
+    path: "/categories/breaking-controversies/"
+  - title: "World News & Global Conflicts"
+    path: "/categories/world-news-global-conflicts/"
+  - title: "Politics & Governance"
+    path: "/categories/politics-governance/"
+  - title: "Science & Technology"
+    path: "/categories/science-technology/"
+  - title: "Health & Wellness"
+    path: "/categories/health-wellness/"
+  - title: "Economy & Finance"
+    path: "/categories/economy-finance/"
